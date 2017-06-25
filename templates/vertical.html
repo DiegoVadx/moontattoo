@@ -1,0 +1,147 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Moon Tattoo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no">
+  <!-- Style Sheet-->
+    {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}" media="screen">
+  <!-- favicon -->
+  <link rel="shortcut icon" href="{%static 'img/favicon.ico'%}">  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface&amp;subset=latin-ext" rel="stylesheet">
+  <script src="{% static 'js/jquery-3.1.1.min.js'%}"></script>
+  <script type="text/javascript" src="{% static 'js/scripts.js'%}"></script>
+  <link href="{% static 'css/simplelightbox.css'%}" rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="{% static 'js/simple-lightbox.js'%}"></script>
+  <!--[if lt IE 9]>
+      <script src="{% static 'js/html5.js'%}"></script>
+  <![endif]-->
+
+</head>
+
+<!-- Body -->
+
+<body>
+
+  <!-- Header -->
+
+  <header>
+
+    <div class="logo_mobile">
+      <a href="index.html">
+        <img alt="Moon Tattoo" src="{%static 'img/logo_movil.png'%}">
+      </a>
+    </div>
+    <span class="burger_click_mobile" onclick="openNav2()"></span>
+    <div id="mySidenav2" class="sidenav_mobile"><div class="row_grid menu_burger_mobile rel-grid">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()"><span class="burger_click_close" onclick="openNav2()"></span></a>
+      <ul class="menu main">
+        <li><a href="{% url 'home' %}">Inicio</a>
+        </li>
+        <li><a href="{% url 'vertical' %}">Galeria</a>>
+        </li>
+      </ul>
+    </div>
+    </div>
+
+    <div class="top_menu">
+      <div class="menu_left">
+        <ul class="menu main">
+          <li><a href="{%url 'home'%}">Inicio</a>
+          </li>
+        </ul>
+      </div>
+        <div class="logo">
+          <a href="{% url 'home' %}">
+            <img alt="Tattoo Theme - FutureTeam" src="{% static 'img/logo.png'%}">
+          </a>
+        </div>
+      <div class="menu_right">
+        <ul class="menu main">
+             <li><a href="{%url 'vertical'%}">Galeria</a>
+             </li>
+        </ul>
+      </div>
+    </div>
+    </header>
+    <div style="background-image:url({%static 'img/gallery.jpg'%}); background-repeat:no-repeat; background-attachment: fixed; " class="h_slider-p h_slider-page">
+      <div id="h_content" class="h_content slide-in">
+        <h1 class="h_title">Galeria</h1>
+      </div>
+    </div>
+  <!-- END Header -->
+
+  <!-- Content -->
+
+  <div class="container img_gal">
+    <ul>
+      {% for image in gallery %}
+      <li style="background-image: url({{ image.url }}); background-size:cover">
+          <a href="{{ image.url }}" rel="">
+              <span class="plus_cover"></span>
+          </a>
+
+      {% endfor %}
+
+    </ul><div class="clearfix"></div>
+  </div>
+
+
+
+
+
+
+<div class="container  contact-grid" style="background-image:url({% static 'img/dragon.png'%});">
+  <div class="container_inner">
+    <div class="row_grid columns-3">
+      <div class="h-column">
+        <div class="contact-1">
+          <h2>Agenda tu cita</h2>
+          <h4>Moon Tattoo Studio</h4>
+          <p class="contact-text">Para agendar una cita llamar o escribir al Whatsapp</p>
+          <a class="more_gallery">Horarios</a>
+          <div class="check_social_white">
+              <a href="https://www.instagram.com/moon_tattoo90/?hl=es" class="soc twitt"><img alt="Tattoo Theme - FutureTeam" src="{% static 'img/instagram.png'%}"></a>
+              <a href="https://www.facebook.com/moontattoo11" class="soc twitt"><img alt="Tattoo Theme - FutureTeam" src="{% static 'img/facebook.png'%}"></a>
+          </div>
+        </div>
+      </div>
+
+
+    <div class="h-column">
+      <div class="contact-2">
+        <p class="adress">Cl.44 #11-17<br>Soledad, Atlantico</p>
+        <p class="phone">Whatsapp<br>3003643301</p>
+        <p class="opens">Lunes - 10:00 am - 8:00 pm<br>Martes - Cerrado<br>Miercoles - 10:00 am - 8:00 pm<br>Jueves - 10:00 am - 8:00 pm<br>Viernes - 10:00 am - 8:00 pm<br>Sabado - 10:00 am - 8:00 pm<br>Domingo - 10:00 am - 6:00 pm</p>
+      </div>
+    </div>
+
+    <div class="h-column">
+      <div class="contact-3">
+        <form action="" class="contact_form">
+          <p class=""><br><input class="field_form" type="text" name="firstname" placeholder="Nombre"></p>
+          <p class=""><br><input class="field_form" type="text" name="firstname" placeholder="Mensaje"></p>
+          <p><br><textarea class="field_form_area field_form" rows="4" cols="50" name="firstname" placeholder="Escribe tu mensaje aquí" ></textarea></p>
+          <input class="sendit h_button" type="submit" value="Enviar">
+        </form>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+
+
+</body>
+
+  <!-- /Body -->
+
+</html>
